@@ -5,7 +5,7 @@ class Contact extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(
-        top: 20,
+        top: 10,
         left: 20,
       ),
       child: Column(
