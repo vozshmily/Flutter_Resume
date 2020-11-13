@@ -54,7 +54,7 @@ class MyHomePage extends StatelessWidget {
               child: Education(),
             ),
             Container(
-              //padding: EdgeInsets.all(10),
+              padding: EdgeInsets.only(bottom: 20),
               child: Contact(),
             ),
           ],
