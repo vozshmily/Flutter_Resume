@@ -23,12 +23,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
-String amount;
-
 class MyHomePage extends StatelessWidget {
-  final appBar = AppBar(
-    title: Text('Portfolio'),
-  );
   final blueLine = Container(
     margin: EdgeInsets.all(5),
     height: 5.0,
@@ -37,29 +32,47 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBar,
-      body: SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
-            SizedBox(height: 5.0),
-            Name(),
-            blueLine,
-            Skills(),
-            Container(
-              padding: EdgeInsets.all(10),
-              child: JobExperience(),
+      body: NestedScrollView(
+        headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+          return <Widget>[
+            SliverAppBar(
+              expandedHeight: 200.0,
+              floating: false,
+              pinned: true,
+              flexibleSpace: FlexibleSpaceBar(
+                  
+                  title: Text('Mark Paolo Mendoza',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16.0,
+                      )),
+                  background: Image.network(
+                    "https://storage.stfalcon.com/uploads/images/5dee613a84eb5.jpeg",
+                    fit: BoxFit.cover,
+                  )),
             ),
-            Container(
-              padding: EdgeInsets.all(10),
-              child: Education(),
-            ),
-            Container(
-              padding: EdgeInsets.only(bottom: 20),
-              child: Contact(),
-            ),
-          ],
+          ];
+        },
+          body: Container(
+            alignment: Alignment.center,
+            width: double.infinity,
+            height: double.infinity,
+            child: SingleChildScrollView(
+                child: Column(
+              children: [
+                SizedBox(height: 20.0),
+                Skills(),
+                SizedBox(height: 20.0),
+                JobExperience(),
+                SizedBox(height: 20.0),
+                Education(),
+                SizedBox(height: 20.0),
+                Contact(),
+                SizedBox(height: 50.0),
+              ],
+            )),
+          ),
         ),
-      ),
     );
   }
 }
